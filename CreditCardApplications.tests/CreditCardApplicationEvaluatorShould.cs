@@ -8,7 +8,33 @@ namespace CreditCardApplications.tests
         [Fact]
         public void AcceptHighIncomeApplications()
         {
+            // Arrange
             var sut = new CreditCardApplicationEvaluator();
+
+            var application = new CreditCardApplication { GrossAnnualIncome = 100_000 };
+
+            // Act
+            CreditCardApplicationDecision decision = sut.Evaluate(application);
+
+            // Assert
+            Assert.Equal(CreditCardApplicationDecision.AutoAccepted, decision);
         }
+
+        [Fact]
+        public void ReferYoungApplications()
+        {
+            // Arrange
+            var sut = new CreditCardApplicationEvaluator();
+
+            var application = new CreditCardApplication { Age = 19 };
+
+            //Act
+            CreditCardApplicationDecision decision = sut.Evaluate(application);
+
+            //Assert
+            Assert.Equal(CreditCardApplicationDecision.ReferredToHuman, decision);
+        }
+
+        // other evaluator test conditions
     }
 }
