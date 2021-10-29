@@ -9,7 +9,7 @@ namespace CreditCardApplications.tests
         public void AcceptHighIncomeApplications()
         {
             // Arrange
-            var sut = new CreditCardApplicationEvaluator();
+            var sut = new CreditCardApplicationEvaluator(null);
 
             var application = new CreditCardApplication { GrossAnnualIncome = 100_000 };
 
@@ -24,7 +24,7 @@ namespace CreditCardApplications.tests
         public void ReferYoungApplications()
         {
             // Arrange
-            var sut = new CreditCardApplicationEvaluator();
+            var sut = new CreditCardApplicationEvaluator(null);
 
             var application = new CreditCardApplication { Age = 19 };
 
