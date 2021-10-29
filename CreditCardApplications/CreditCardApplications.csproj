@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>moq_dot_net_core_unit_tests</RootNamespace>
+    <RootNamespace>CreditCardApplications</RootNamespace>
   </PropertyGroup>
 
 </Project>
