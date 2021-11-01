@@ -10,7 +10,8 @@
      
         public CreditCardApplicationEvaluator(IFrequentFlyerNumberValidator validator)
         {
-            _validator = validator;
+            _validator = validator ??
+                throw new System.ArgumentNullException(nameof(validator));
         }
 
         public CreditCardApplicationDecision Evaluate(CreditCardApplication application)
@@ -20,7 +21,8 @@
                 return CreditCardApplicationDecision.AutoAccepted;
             }
 
-            var isValidFrequentFlyerNumber = _validator.IsValid(application.FrequentFlyerNumber);
+            var isValidFrequentFlyerNumber =
+                _validator.IsValid(application.FrequentFlyerNumber);
 
             if (!isValidFrequentFlyerNumber)
             {
